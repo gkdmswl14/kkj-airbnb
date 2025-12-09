@@ -1,0 +1,18 @@
+{
+  "name": "colina-hotel-template",
+  "version": "1.0.0",
+  "description": "Colina Hotel HTML Template - Local Development Server",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "python": "cd template && python -m http.server 8080"
+  },
+  "keywords": [
+    "hotel",
+    "template",
+    "html"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+

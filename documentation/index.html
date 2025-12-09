@@ -1,0 +1,302 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Colina - Website Documentation</title>
+    <!--CSS styles-->
+    <link rel="stylesheet" media="screen" href="css/default.min.css" />
+    <link rel="stylesheet" media="screen" href="css/help.css" />
+    <!--JS files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        $(function () {
+            $('nav li a').click(function () {
+                $('nav li a').removeClass('active');
+                $(this).addClass('active')
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="label"><a>Navigation</a></li>
+            <li><a href="#css-files">CSS files</a></li>
+            <li><a href="#js-files">Javascript files</a></li>
+            <li><a href="#loader">Page loader</a></li>
+            <li><a href="#nav">Navigation</a></li>
+            <li><a href="#slider">Frontpage slider</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#stretcher">Stretcher widget</a></li>
+            <li><a href="#image-blocks">Image blocks</a></li>
+            <li><a href="#rooms">Rooms widget</a></li>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#credits">Credits</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>
+            Colina - Theme documentation
+            <br />
+            <small style="color:#3597ff">Version 1.1.0</small>
+        </h1>
+
+        <!-- #################### CSS #################### -->
+
+        <div id="css-files">
+            <h2 class="title">Stylesheets</h2>
+            <p>
+                First of all, you need to include all needed css files. Make sure that the main theme css "
+                <i class="true">theme.css</i>" is the last one, it will apply all basic theme files. Media queries for responsive preview are included!
+            </p>
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/bootstrap.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/animate.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/font-awesome.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/linear-icons.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/hotel-icons.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/magnific-popup.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/owl.carousel.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/datepicker.css&quot; /&gt;<br />&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/theme.css&quot; /&gt;</code>    
+            </pre>
+        </div>
+
+        <!-- #################### Javascript #################### -->
+
+        <div id="js-files">
+            <h2 class="title">Javascript</h2>
+            <p>
+                Add all main .js files to your document. Options and initalizations are in "
+                <i class="true">main.js</i>"
+            </p>
+            <pre>
+            <code class="hljs">&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/jquery-ui.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/jquery.bootstrap.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/jquery.magnific-popup.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/jquery.owl.carousel.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;</code>    
+            </pre>
+        </div>
+
+        <!-- #################### Page loader #################### -->
+
+        <div id="loader">
+            <h2 class="title">Page loader</h2>
+            <p>Page loader markup needs to be firs element after "body" tag.</p>
+
+            <h4 class="subtitle">Markup of loader</h4>
+            <pre -number class="brush: html  language-html"><code>&lt;div class=&quot;page-loader&quot;&gt;&lt;/div&gt;</code></pre>
+
+            <h4 class="subtitle">Loader javascript</h4>
+            <p>Be sure that <strong>$(window).bind("load", function () {...}</strong> cannot be inside <strong>$(function() {...})</strong> shorthand for $( document ).ready()</p>
+            <pre><code>$(window).on(&quot;load&quot;, function () {<br />    setTimeout(function () {<br />        $(&#39;.page-loader&#39;).addClass(&#39;loaded&#39;);<br />    }, 1000);<br />})</code></pre>
+        </div>
+
+        <!-- #################### Navigation #################### -->
+
+        <div id="nav">
+            <h2 class="title">Navigation</h2>
+
+            <h4 class="subtitle">Markup</h4>
+            <p>
+                First of all, you need to include all needed css files. Make sure that the main theme css "
+                <i class="true">theme.css</i>" is the last one, it will apply all basic theme files. Media queries for responsive preview are included!
+            </p>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;header&gt;<br /><br />    &lt;!-- ======================== Navigation ======================== --&gt;<br /><br />    &lt;div class=&quot;container&quot;&gt;<br /><br />        &lt;!-- === navigation-top === --&gt;<br /><br />        &lt;nav class=&quot;navigation-top clearfix&quot;&gt;<br /><br />            &lt;!-- navigation-top-left --&gt;<br /><br />            &lt;div class=&quot;navigation-top-left&quot;&gt;<br />                &lt;a class=&quot;box&quot; href=&quot;#&quot;&gt;<br />                    &lt;i class=&quot;icon icon-phone-handset&quot;&gt;&lt;/i&gt; (01) 252-3333<br />                &lt;/a&gt;<br />            &lt;/div&gt;<br /><br />            &lt;!-- navigation-top-right --&gt;<br /><br />            &lt;div class=&quot;navigation-top-right&quot;&gt;<br />                &lt;a class=&quot;box&quot; href=&quot;#&quot;&gt;<br />                    &lt;i class=&quot;icon icon-star&quot;&gt;&lt;/i&gt; Special offers<br />                &lt;/a&gt;<br />                &lt;a class=&quot;box&quot; href=&quot;reservation-1.html&quot;&gt;<br />                    &lt;i class=&quot;icon icon-tag&quot;&gt;&lt;/i&gt; Reservations<br />                &lt;/a&gt;<br />            &lt;/div&gt;<br />        &lt;/nav&gt;<br /><br />        &lt;!-- === navigation-main === --&gt;<br /><br />        &lt;nav class=&quot;navigation-main clearfix&quot;&gt;<br /><br />            &lt;!-- logo --&gt;<br /><br />            &lt;div class=&quot;logo animated fadeIn&quot;&gt;<br />                &lt;a href=&quot;index.html&quot;&gt;<br />                    &lt;img class=&quot;visible-md visible-lg&quot; src=&quot;assets/images/logo.png&quot; alt=&quot;Alternate Text&quot; /&gt;<br />                    &lt;img class=&quot;visible-xs visible-sm&quot; src=&quot;assets/images/logo-mobile.png&quot; alt=&quot;Alternate Text&quot; /&gt;<br />                &lt;/a&gt;<br />            &lt;/div&gt;<br /><br />            &lt;!-- toggle-menu --&gt;<br /><br />            &lt;div class=&quot;toggle-menu&quot;&gt;&lt;i class=&quot;icon icon-menu&quot;&gt;&lt;/i&gt;&lt;/div&gt;<br /><br />            &lt;!-- navigation-block --&gt;<br /><br />            &lt;div class=&quot;navigation-block&quot;&gt;<br /><br />                &lt;!-- navigation-left --&gt;<br /><br />                &lt;ul class=&quot;navigation-left&quot;&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;index.html&quot;&gt;Home &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;<br />                        &lt;ul&gt;<br />                            &lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;Home - Spaced&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;index-2.html&quot;&gt;Home - Boxed&lt;/a&gt;&lt;/li&gt;<br />                        &lt;/ul&gt;<br />                    &lt;/li&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;#&quot;&gt;Pages &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;<br />                        &lt;ul&gt;<br />                            &lt;li&gt;&lt;a href=&quot;about.html&quot;&gt;About us&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;rooms-category.html&quot;&gt;Rooms category&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;room-overview.html&quot;&gt;Room overview&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;404.html&quot;&gt;404 Not found&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;shortcodes.html&quot;&gt;Shortcodes&lt;/a&gt;&lt;/li&gt;<br />                        &lt;/ul&gt;<br />                    &lt;/li&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;#&quot;&gt;Booking &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;<br />                        &lt;ul&gt;<br />                            &lt;li&gt;&lt;a href=&quot;reservation-1.html&quot;&gt;Booking step 1&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;reservation-2.html&quot;&gt;Booking step 2&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;reservation-3.html&quot;&gt;Booking step 3&lt;/a&gt;&lt;/li&gt;<br />                        &lt;/ul&gt;<br />                    &lt;/li&gt;<br />                &lt;/ul&gt;<br /><br />                &lt;!-- navigation-right --&gt;<br /><br />                &lt;ul class=&quot;navigation-right&quot;&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;facility.html&quot;&gt;Facilities&lt;/a&gt;<br />                    &lt;/li&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;#&quot;&gt;Blog &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;<br />                        &lt;ul&gt;<br />                            &lt;li&gt;&lt;a href=&quot;blog-category.html&quot;&gt;Blog category&lt;/a&gt;&lt;/li&gt;<br />                            &lt;li&gt;&lt;a href=&quot;blog-item.html&quot;&gt;Blog item&lt;/a&gt;&lt;/li&gt;<br />                        &lt;/ul&gt;<br />                    &lt;/li&gt;<br />                    &lt;li&gt;<br />                        &lt;a href=&quot;contact.html&quot;&gt;Contact&lt;/a&gt;<br />                    &lt;/li&gt;<br />                &lt;/ul&gt;<br /><br />            &lt;/div&gt; &lt;!--/navigation-block--&gt;<br /><br />        &lt;/nav&gt;<br />    &lt;/div&gt; &lt;!--/container--&gt;<br />&lt;/header&gt;</code>    
+            </pre>
+
+            <h4 class="subtitle">Call javascript</h4>
+            <p>The functions are triggers login, searchbar or cart items. Mobile events are included too.</p>
+
+            <pre>
+            <code class="hljs">// Toggle menu<br />// ------------------------------------<br /><br />$(&#39;.toggle-menu&#39;).on(&#39;click&#39;, function () {<br />    $(this).toggleClass(&#39;open&#39;);<br />    $(this).parent().find(&#39;.navigation-block&#39;).toggleClass(&#39;open&#39;);<br />});<br /><br />var $box = $(&#39;.options-content .options .box&#39;);<br />$box.click(function () {<br />    var $this = $(this),<br />        $boxWrapper = $this.closest(&#39;.box-wrapper&#39;);<br />    if ($this.hasClass(&#39;active&#39;)) {<br />        $boxWrapper.removeClass(&#39;box-wrapper-selected&#39;);<br />        $this.removeClass(&#39;active&#39;);<br />    }<br />    else {<br />        $boxWrapper.addClass(&#39;box-wrapper-selected&#39;);<br />        $this.closest(&#39;.options-content&#39;).find(&#39;.box&#39;).removeClass(&#39;active&#39;);<br />        $this.addClass(&#39;active&#39;);<br />    }<br />});<br /><br />// Mobile - Dropdown menu<br />// ------------------------------------<br /><br />$(&#39;.open-dropdown&#39;).on(&#39;click&#39;, function (e) {<br />    e.preventDefault();<br />    if ($(document).width() &gt;= 992) {<br />        return false;<br />    }<br />    var $this = $(this),<br />        $li = $this.closest(&#39;li&#39;),<br />        $drop = $li.find(&#39;ul&#39;);<br />    $li.toggleClass(&#39;expanded&#39;);<br />    if ($li.hasClass(&#39;expanded&#39;)) {<br />        $drop.slideDown();<br />    }<br />    else {<br />        $drop.slideUp();<br />    }<br />});<br /><br />// Desktop - Dropdown menu<br />//---------------------------<br /><br />$(&#39;.navigation-block &gt; ul &gt; li&#39;).bind({<br />    mouseenter: function () {<br />        if ($(document).width() &lt; 992) {<br />            return false;<br />        }<br />        $(this).addClass(&#39;hovered&#39;);<br />    },<br />    mouseleave: function () {<br />        if ($(document).width() &lt; 992) {<br />            return false;<br />        }<br />        $(this).removeClass(&#39;hovered&#39;).removeAttr(&#39;class&#39;);<br />    },<br />});</code>
+            </pre>
+        </div>
+
+
+        <!-- #################### Frontpage slider #################### -->
+
+        <div id="slider">
+
+            <h2 class="title">Frontpage slider</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of slider</h4>
+            <p>
+                Animation are included and it can be called on data-amination attributes. List of supported animations are
+            </p>
+
+            <pre>
+            <code class="hljs">&lt;div class=&quot;frontpage-slider&quot;&gt;<br />    &lt;div class=&quot;container&quot;&gt;<br />        &lt;div class=&quot;owl-slider owl-slider-header&quot;&gt;<br /><br />            &lt;!-- === slide item === --&gt;<br /><br />            &lt;div class=&quot;item&quot; style=&quot;background-image:url(...)&quot;&gt;<br />                &lt;div class=&quot;box text-right&quot;&gt;<br />                    &lt;h2 class=&quot;title animated h1&quot; data-animation=&quot;fadeInDown&quot;&gt;<br />                        ...<br />                    &lt;/h2&gt;<br />                    &lt;div class=&quot;desc animated&quot; data-animation=&quot;fadeInUp&quot;&gt;<br />                        ...<br />                    &lt;/div&gt;<br />                    &lt;div class=&quot;desc animated&quot; data-animation=&quot;fadeInUp&quot;&gt;<br />                        ...<br />                    &lt;/div&gt;<br />                    &lt;div class=&quot;animated&quot; data-animation=&quot;fadeInUp&quot;&gt;<br />                        &lt;a href=&quot;#&quot; class=&quot;btn btn-clean&quot;&gt;Link&lt;/a&gt;<br />                    &lt;/div&gt;<br />                &lt;/div&gt;<br />            &lt;/div&gt;<br /><br />        &lt;/div&gt; &lt;!--/owl-slider--&gt;<br />    &lt;/div&gt; &lt;!--/container--&gt;<br />&lt;/div&gt; &lt;!--/frontpage-slider--&gt;</code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the plugin</h4>
+            <p>
+                For more documentation please visit
+                <a href="http://www.landmarkmlp.com/js-plugin/owl.carousel/" target="_blank">Owl Carousel webiste</a>
+            </p>
+
+            <pre>
+            <code class="hljs">    // Frontpage slider<br />    // ----------------------------------------------------------------<br /><br />    var arrowIcons = [<br />        &#39;&lt;span class=&quot;icon icon-chevron-left&quot;&gt;&lt;/span&gt;&#39;,<br />        &#39;&lt;span class=&quot;icon icon-chevron-right&quot;&gt;&lt;/span&gt;&#39;<br />    ];<br /><br />    $.each($(&quot;.owl-slider&quot;), function (i, n) {<br /><br />        $(n).owlCarousel({<br />            autoHeight: false,<br />            navigation: true,<br />            navigationText: arrowIcons,<br />            items: 1,<br />            singleItem: true,<br />            addClassActive: true,<br />            transitionStyle: &quot;fadeUp&quot;,<br />            afterMove: animatetCaptions,<br />            autoPlay: 8000,<br />            stopOnHover: false<br />        });<br /><br />        animatetCaptions();<br /><br />        function animatetCaptions(event) {<br />            &quot;use strict&quot;;<br />            var activeItem = $(n).find(&#39;.owl-item.active&#39;),<br />            timeDelay = 100;<br />            $.each(activeItem.find(&#39;.animated&#39;), function (j, m) {<br />                var item = $(m);<br />                item.css(&#39;animation-delay&#39;, timeDelay + &#39;ms&#39;);<br />                timeDelay = timeDelay + 180;<br />                item.addClass(item.data(&#39;animation&#39;));<br />                setTimeout(function () {<br />                    item.removeClass(item.data(&#39;animation&#39;));<br />                }, 2000);<br />            });<br />        }<br /><br />        if ($(n).hasClass(&#39;owl-slider-fullscreen&#39;)) {<br />            $(&#39;.header-content .item&#39;).height($(window).height());<br />        }<br />    });</code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Booking #################### -->
+
+        <div id="booking">
+
+            <h2 class="title">Booking</h2>
+
+            <div class="image">
+                <h3>Example booking 1</h3>
+                <img src="assets/images/booking-1.png" alt="" />
+                <span><pre><code>Example 1: Use class "booking booking-default-theme"</code></pre></span>
+            </div>
+
+            <div class="image">
+                <h3>Example booking 2</h3>
+                <img src="assets/images/booking-2.png" alt="" />
+                <span><pre><code>Example 2: Use class "booking booking-inner"</code></pre></span>
+            </div>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Booking markup</h4>
+            <pre>
+            <code class="hljs">&lt;div class=&quot;booking&quot;&gt; &lt;!--for slider overflow use &#39;booking-inner&#39; class--&gt;<br /><br />    &lt;div class=&quot;container&quot;&gt;<br /><br />        &lt;!--=== booking-wrapper ===--&gt;<br /><br />        &lt;div class=&quot;booking-wrapper&quot;&gt;<br />            &lt;div class=&quot;row&quot;&gt;<br /><br />                &lt;!--=== date arrival ===--&gt;<br /><br />                &lt;div class=&quot;col-xs-4 col-sm-3&quot;&gt;<br />                    &lt;div class=&quot;date&quot; id=&quot;dateArrival&quot; data-text=&quot;Arrival&quot;&gt;<br />                        &lt;input class=&quot;datepicker&quot; readonly=&quot;readonly&quot; /&gt;<br />                        &lt;div class=&quot;date-value&quot;&gt;&lt;/div&gt; <br />                    &lt;/div&gt;<br />                &lt;/div&gt;<br /><br />                &lt;!--=== date departure ===--&gt;<br /><br />                &lt;div class=&quot;col-xs-4 col-sm-3&quot;&gt;<br />                    &lt;div class=&quot;date&quot; id=&quot;dateDeparture&quot; data-text=&quot;Departure&quot;&gt;<br />                        &lt;input class=&quot;datepicker&quot; readonly=&quot;readonly&quot; /&gt;<br />                        &lt;div class=&quot;date-value&quot;&gt;&lt;/div&gt;<br />                    &lt;/div&gt;<br />                &lt;/div&gt;<br /><br />                &lt;!--=== guests ===--&gt;<br /><br />                &lt;div class=&quot;col-xs-4 col-sm-2&quot;&gt;<br /><br />                    &lt;div class=&quot;guests&quot; data-text=&quot;Guests&quot;&gt;<br />                        &lt;div class=&quot;result&quot;&gt;<br />                            &lt;input class=&quot;qty-result&quot; type=&quot;text&quot; value=&quot;2&quot; id=&quot;qty-result&quot; readonly=&quot;readonly&quot; /&gt;<br />                            &lt;div class=&quot;qty-result-text date-value&quot; id=&quot;qty-result-text&quot;&gt;&lt;/div&gt;<br />                        &lt;/div&gt;<br /><br />                        &lt;!--=== guests list dropdown ===--&gt;<br /><br />                        &lt;ul class=&quot;guest-list&quot;&gt;<br /><br />                            &lt;li class=&quot;header&quot;&gt;<br />                                Please choose number of guests<br />                            &lt;/li&gt;<br /><br />                            &lt;!--=== adults ===--&gt;<br /><br />                            &lt;li class=&quot;clearfix&quot;&gt;<br /><br />                                &lt;!--=== Adults value ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-amount&quot; value=&quot;2&quot; type=&quot;text&quot; id=&quot;ticket-adult&quot; data-value=&quot;2&quot; readonly=&quot;readonly&quot; /&gt;<br />                                &lt;/div&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;span&gt;Adults &lt;small&gt;16+ years&lt;/small&gt;&lt;/span&gt;<br />                                &lt;/div&gt;<br /><br />                                &lt;!--=== Add/remove quantity buttons ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-btn qty-minus&quot; value=&quot;-&quot; type=&quot;button&quot; data-field=&quot;ticket-adult&quot; /&gt;<br />                                    &lt;input class=&quot;qty-btn qty-plus&quot; value=&quot;+&quot; type=&quot;button&quot; data-field=&quot;ticket-adult&quot; /&gt;<br />                                &lt;/div&gt;<br /><br />                            &lt;/li&gt;<br /><br />                            &lt;!--=== chilrens ===--&gt;<br /><br />                            &lt;li class=&quot;clearfix&quot;&gt;<br /><br />                                &lt;!--=== Adults value ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-amount&quot; value=&quot;0&quot; type=&quot;text&quot; id=&quot;ticket-children&quot; data-value=&quot;0&quot; readonly=&quot;readonly&quot; /&gt;<br />                                &lt;/div&gt;<br /><br />                                &lt;!--=== Label ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;span&gt;Children &lt;small&gt;2-11 years&lt;/small&gt;&lt;/span&gt;<br />                                &lt;/div&gt;<br /><br /><br />                                &lt;!--=== Add/remove quantity buttons ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-btn qty-minus&quot; value=&quot;-&quot; type=&quot;button&quot; data-field=&quot;ticket-children&quot; /&gt;<br />                                    &lt;input class=&quot;qty-btn qty-plus&quot; value=&quot;+&quot; type=&quot;button&quot; data-field=&quot;ticket-children&quot; /&gt;<br />                                &lt;/div&gt;<br /><br />                            &lt;/li&gt;<br /><br />                            &lt;!--=== Infants ===--&gt;<br /><br />                            &lt;li class=&quot;clearfix&quot;&gt;<br /><br />                                &lt;!--=== Adults value ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-amount&quot; value=&quot;0&quot; type=&quot;text&quot; id=&quot;ticket-infants&quot; data-value=&quot;0&quot; readonly=&quot;readonly&quot; /&gt;<br />                                &lt;/div&gt;<br /><br />                                &lt;!--=== Label ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;span&gt;Infants &lt;small&gt;Under 2 years&lt;/small&gt;&lt;/span&gt;<br />                                &lt;/div&gt;<br /><br />                                &lt;!--=== Add/remove quantity buttons ===--&gt;<br /><br />                                &lt;div&gt;<br />                                    &lt;input class=&quot;qty-btn qty-minus&quot; value=&quot;-&quot; type=&quot;button&quot; data-field=&quot;ticket-infants&quot; /&gt;<br />                                    &lt;input class=&quot;qty-btn qty-plus&quot; value=&quot;+&quot; type=&quot;button&quot; data-field=&quot;ticket-infants&quot; /&gt;<br />                                &lt;/div&gt;<br />                            &lt;/li&gt;<br />                        &lt;/ul&gt;<br />                    &lt;/div&gt;<br />                &lt;/div&gt;<br /><br />                &lt;!--=== button ===--&gt;<br /><br />                &lt;div class=&quot;col-xs-12 col-sm-4&quot;&gt;<br />                    &lt;a href=&quot;reservation-1.html&quot; class=&quot;btn btn-clean&quot;&gt;<br />                        Book now<br />                        &lt;small&gt;Best Prices Guaranteed&lt;/small&gt;<br />                    &lt;/a&gt;<br />                &lt;/div&gt;<br /><br />            &lt;/div&gt; &lt;!--/row--&gt;<br />        &lt;/div&gt;&lt;!--/booking-wrapper--&gt;<br />    &lt;/div&gt; &lt;!--/container--&gt;<br />&lt;/div&gt; &lt;!--/booking--&gt;</code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the calendar & guest list</h4>
+
+            <pre>
+            <code class="hljs">    // Datepicker<br />    // ------------------------------------------------------<br /><br />    // Default calendar namespaces<br />    var dateFormat = &quot;&lt;span class=&#39;day&#39;&gt;d&lt;/span&gt; &lt;span class=&#39;month&#39;&gt;M&lt;/span&gt; &lt;span class=&#39;year&#39;&gt;yy&lt;/span&gt;&quot;,<br />        dateArrival = &#39;#dateArrival input&#39;,<br />        dateDeparture = &#39;#dateDeparture input&#39;,<br />        dateArrivalVal = &#39;#dateArrival .date-value&#39;,<br />        dateDepartureVal = &#39;#dateDeparture .date-value&#39;;<br /><br />    // Show arrival calendar<br />    $(dateArrival).datepicker({<br />        minDate: &#39;D&#39;,<br />        dateFormat: dateFormat,<br />        // get value on selected date for departure<br />        onSelect: function (txt, inst) {<br />            $(dateDepartureVal).html(txt);<br />            $(dateArrivalVal).html($(dateArrival).val());<br />        },<br />        onClose: function (selectedDate) {<br />            $(dateDeparture).datepicker(&quot;option&quot;, &quot;minDate&quot;, selectedDate);<br />        }<br />    });<br /><br />    // Show departure calendar<br />    $(dateDeparture).datepicker({<br />        minDate: &#39;D&#39;,<br />        dateFormat: dateFormat,<br />        // get value on selected date for return<br />        onSelect: function (txt, inst) {<br />            $(dateDepartureVal).html(txt);<br />            $(dateDepartureVal).html($(dateDeparture).val());<br />        }<br />    });<br /><br />    // set current date<br />    $(&#39;.datepicker&#39;).datepicker(&#39;setDate&#39;, &#39;today&#39;);<br />    // get current value from departure <br />    $(dateArrivalVal).html($(dateArrival).val());<br />    // get current value from return<br />    $(dateDepartureVal).html($(dateDeparture).val());<br />    // hide return input field<br />    updateGuestNumber();<br />    // update number of guest list<br /><br /><br />    // Guests <br />    // -------------------------------------------------------<br /><br />    var $guests = $(&#39;.guests&#39;),<br />        $guestList = $(&#39;.guests *&#39;);<br /><br />    // Guest list toogle event - dropdown<br />    $(&#39;.guests .result&#39;).on(&#39;click&#39;, function (e) {<br />        e.stopPropagation();<br />        $guests.toggleClass(&quot;show&quot;);<br />    });<br /><br />    // Close on page click<br />    $(document).on(&quot;click&quot;, function (e) {<br />        if (!$(e.target).is($guestList)) {<br />            $guests.removeClass(&quot;show&quot;);<br />        }<br />    });<br /><br />    // Quantities (add remove guests numbers) <br />    // -------------------------------------------------------<br /><br />    $(&#39;.qty-plus&#39;).add(&#39;.qty-minus&#39;).click(function (e) {<br />        e.preventDefault();<br /><br />        var $this = $(this),<br />            fieldName = $this.attr(&#39;data-field&#39;),<br />            $input = $(&#39;input#&#39; + fieldName);<br /><br />        var currentVal = parseInt($input.data(&#39;value&#39;)),<br />            ticketType = $input.data(&#39;tickettype&#39;);<br /><br />        if (!isNaN(currentVal)) {<br />            var isChanged = false,<br />                value = 0;<br /><br />            if ($this.hasClass(&#39;qty-plus&#39;) &amp;&amp; currentVal &lt; 12) {<br />                value = currentVal + 1;<br />                isChanged = true;<br />            }<br /><br />            if ($this.hasClass(&#39;qty-minus&#39;) &amp;&amp; currentVal &gt; 0) {<br />                value = currentVal - 1;<br />                isChanged = true;<br />            }<br /><br />            if (isChanged) {<br />                $input.data(&#39;value&#39;, value);<br />                $(ticketType).val(ticketType + &#39;-&#39; + value);<br />                $input.val(value);<br />                // Update guests number<br />                updateGuestNumber();<br />            }<br />        }<br />    });<br /><br />    // Passangers result<br />    function updateGuestNumber() {<br />        var adult = $(&#39;#ticket-adult&#39;).val(),<br />            children = $(&#39;#ticket-children&#39;).val(),<br />            infants = $(&#39;#ticket-infants&#39;).val(),<br />            qty = $(&#39;#qty-result&#39;);<br />        qty.val(parseInt(adult) + parseInt(children) + parseInt(infants));<br />        // DOM results<br />        $(&#39;#qty-result-text&#39;).text(qty.val());<br />    }</code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Stretcher widget #################### -->
+
+        <div id="stretcher">
+            <h2 class="title">Stretcher widget</h2>
+            <p>Stretcher widget is custom made grid stretcher, and it support only 4 elements for inline display.</p>
+
+            <div class="image">
+                <img src="assets/images/stretcher.png" alt="" />
+            </div>
+
+            <h4 class="subtitle">Markup</h4>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;section class=&quot;stretcher-wrapper&quot;&gt;<br />    &lt;!-- === stretcher === --&gt;<br />    &lt;ul class=&quot;stretcher&quot;&gt;<br />        &lt;!-- === stretcher item === --&gt;<br />        &lt;li class=&quot;stretcher-item&quot; style=&quot;background-image:url(...);&quot;&gt;<br />            &lt;!--logo-item--&gt;<br />            &lt;div class=&quot;stretcher-logo&quot;&gt;<br />                &lt;div class=&quot;text&quot;&gt;<br />                    &lt;span class=&quot;f-icon f-icon-bedroom&quot;&gt;&lt;/span&gt;<br />                    &lt;span class=&quot;text-intro&quot;&gt;...&lt;/span&gt;<br />                &lt;/div&gt;<br />            &lt;/div&gt;<br />            &lt;!--main text--&gt;<br />            &lt;figure&gt;<br />                &lt;h4&gt;Your title ...&lt;/h4&gt;<br />                &lt;figcaption&gt;Description ...&lt;/figcaption&gt;<br />            &lt;/figure&gt;<br />            &lt;!--anchor--&gt;<br />            &lt;a href=&quot;#&quot;&gt;Anchor link (this text will not be visable)&lt;/a&gt;<br />        &lt;/li&gt;<br />        &lt;li&gt;<br />            ...<br />        &lt;/li&gt;<br />        &lt;!-- === stretcher item more=== --&gt;<br />        &lt;li class=&quot;stretcher-item more&quot;&gt;<br />            &lt;div class=&quot;more-icon&quot;&gt;<br />                &lt;span data-title-show=&quot;Show more&quot; data-title-hide=&quot;+&quot;&gt;&lt;/span&gt;<br />            &lt;/div&gt;<br />            &lt;a href=&quot;#&quot;&gt;&lt;/a&gt;<br />        &lt;/li&gt;<br />    &lt;/ul&gt;<br />&lt;/section&gt;
+            </code>
+            </pre>
+
+            <h4 class="subtitle">Javascript:</h4>
+
+            <pre>
+            <code class="hljs">    // Strecher accordion<br />    // ----------------------------------------------------------------<br /><br />    var $strecherItem = $(&#39;.stretcher-item&#39;);<br />    $strecherItem.bind({<br />        mouseenter: function (e) {<br />            $(this).addClass(&#39;active&#39;);<br />            $(this).siblings().addClass(&#39;inactive&#39;);<br />        },<br />        mouseleave: function (e) {<br />            $(this).removeClass(&#39;active&#39;);<br />            $(this).siblings().removeClass(&#39;inactive&#39;);<br />        }<br />    });</code>
+            </pre>
+        </div>
+
+        <!-- #################### Image blocks #################### -->
+
+        <div id="image-blocks">
+
+            <h2 class="title">Image blocks</h2>
+
+            <div class="image">
+                <img src="assets/images/image-block.png" alt="" />
+            </div>
+
+            <h4 class="subtitle">The markup</h4>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;div class=&quot;image-blocks&quot;&gt; use &#39;image-blocks-theme&#39; for background adjustment or &#39;image-blocks-header&#39; with section-header<br /><br />    &lt;div class=&quot;container&quot;&gt;<br /><br />        &lt;!--item block --&gt;<br /><br />        &lt;div class=&quot;blocks blocks-left&quot;&gt; &lt;!--use &#39;blocks-left&#39; or &#39;blocks-right&#39; class for image position--&gt;<br />            &lt;div class=&quot;item&quot;&gt;<br />                &lt;div class=&quot;text&quot;&gt;<br /><br />                    &lt;!-- === room info === --&gt;<br /><br />                    &lt;h2 class=&quot;title&quot;&gt;<br />                        ...<br />                    &lt;/h2&gt;<br />                    &lt;p&gt;<br />                        ...<br />                    &lt;/p&gt;<br /><br />                    &lt;!-- === room facilities === --&gt;<br /><br />                    &lt;div class=&quot;room-facilities&quot;&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-guest&quot;&gt;&lt;/i&gt; 4 Persons&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-roomservice&quot;&gt;&lt;/i&gt; Room service&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-king-bed&quot;&gt;&lt;/i&gt; Kingsize bed&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-kitchen&quot;&gt;&lt;/i&gt; All inclusive&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-compas&quot;&gt;&lt;/i&gt; 460 sqft room&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                        &lt;!--=== icon ===--&gt;<br /><br />                        &lt;figure&gt;<br />                            &lt;figcaption&gt;&lt;i class=&quot;hotelicon hotelicon-tv&quot;&gt;&lt;/i&gt; TV&lt;/figcaption&gt;<br />                        &lt;/figure&gt;<br /><br />                    &lt;/div&gt;<br /><br />                    &lt;!-- === booking === --&gt;<br /><br />                    &lt;div class=&quot;book&quot;&gt;<br />                        &lt;div&gt;<br />                            &lt;a href=&quot;room-overview.html&quot; class=&quot;btn btn-clean btn-lg&quot;&gt;...&lt;/a&gt;<br />                        &lt;/div&gt;<br />                        &lt;div&gt;<br />                            &lt;span class=&quot;price h2&quot;&gt;...&lt;/span&gt;<br />                            &lt;span&gt;...&lt;/span&gt;<br />                        &lt;/div&gt;<br />                    &lt;/div&gt; &lt;!--/booking--&gt;<br /><br />                &lt;/div&gt;&lt;!--/text--&gt;<br />            &lt;/div&gt; &lt;!--/item--&gt;<br /><br />            &lt;!-- == image === --&gt;<br /><br />            &lt;div class=&quot;image&quot; style=&quot;background-image:url(...)&quot;&gt;<br />                &lt;img src=&quot;...&quot; alt=&quot;&quot; /&gt;<br />            &lt;/div&gt;<br />        &lt;/div&gt;<br /><br />    &lt;/div&gt; &lt;!--/container--&gt;<br />&lt;/div&gt; &lt;!--/image-blocks--&gt;</code>    
+            </pre>
+
+        </div>
+
+        <!-- #################### Rooms widget #################### -->
+
+        <div id="rooms">
+
+            <h2 class="title">Rooms widget</h2>
+
+
+            <div class="image">
+                <img src="assets/images/rooms-widget.png" alt="" />
+            </div>
+
+            <h4 class="subtitle">Markup carousel</h4>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs"><!-- ========================  Rooms ======================== --><br />&lt;div class=&quot;rooms rooms-widget&quot;&gt;<br /><br />    &lt;!-- === rooms header === --&gt;<br /><br />    &lt;div class=&quot;section-header&quot;&gt;<br />        &lt;div class=&quot;container&quot;&gt;<br />            &lt;h2 class=&quot;title&quot;&gt;<br />                ... <br />                &lt;a href=&quot;rooms-category.html&quot; class=&quot;btn btn-sm btn-clean-dark&quot;&gt;Link&lt;/a&gt;<br />            &lt;/h2&gt;<br />            &lt;p&gt;<br />                ...<br />            &lt;/p&gt;<br />        &lt;/div&gt;<br />    &lt;/div&gt;<br /><br />    &lt;!-- === rooms content === --&gt;<br /><br />    &lt;div class=&quot;container&quot;&gt;<br /><br />        &lt;div class=&quot;owl-rooms owl-theme&quot;&gt;<br /><br />            &lt;!-- === rooms item === --&gt;<br /><br />            &lt;div class=&quot;item&quot;&gt;<br />                &lt;article&gt;<br /><br />                    &lt;!-- === image === --&gt;<br /><br />                    &lt;div class=&quot;image&quot;&gt;<br />                        &lt;img src=&quot;...&quot; alt=&quot;&quot; /&gt;<br />                    &lt;/div&gt;<br /><br />                    &lt;!-- === details === --&gt;<br /><br />                    &lt;div class=&quot;details&quot;&gt;<br />                        &lt;div class=&quot;text&quot;&gt;<br />                            &lt;h2 class=&quot;title&quot;&gt;<br />                                ...<br />                            &lt;/h2&gt;<br />                            &lt;p&gt;<br />                                ...<br />                            &lt;/p&gt;<br />                        &lt;/div&gt;<br />                        &lt;div class=&quot;book&quot;&gt;<br />                            &lt;div&gt;<br />                                &lt;a href=&quot;room-overview.html&quot; class=&quot;btn btn-main&quot;&gt;...&lt;/a&gt;<br />                            &lt;/div&gt;<br />                            &lt;div&gt;<br />                                &lt;span class=&quot;price h2&quot;&gt;...&lt;/span&gt;<br />                                &lt;span&gt;...&lt;/span&gt;<br />                            &lt;/div&gt;<br />                        &lt;/div&gt;<br />                    &lt;/div&gt;<br />                &lt;/article&gt;<br />            &lt;/div&gt;<br /><br />        &lt;/div&gt;&lt;!--/owl-rooms--&gt;<br />    &lt;/div&gt; &lt;!--/container--&gt;<br />&lt;/div&gt; &lt;!--/room-widget--&gt;</code>    
+            </pre>
+
+            <h4 class="subtitle">Javascript</h4>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">// Rooms carousel<br />// ----------------------------------------------------------------<br /><br />var arrowIcons = [<br />    &#39;&lt;span class=&quot;icon icon-chevron-left&quot;&gt;&lt;/span&gt;&#39;,<br />    &#39;&lt;span class=&quot;icon icon-chevron-right&quot;&gt;&lt;/span&gt;&#39;<br />];<br /><br />$.each($(&quot;.owl-rooms&quot;), function (i, n) {<br />    $(n).owlCarousel({<br />        autoHeight: false,<br />        pagination: true,<br />        navigation: true,<br />        navigationText: arrowIcons,<br />        items: 3,<br />        itemsDesktop: [1199, 3],<br />        itemsDesktopSmall: [979, 2],<br />        itemsTablet: [768, 2],<br />        itemsTabletSmall: true,<br />        itemsMobile: [479, 1],<br />        addClassActive: true,<br />        autoPlay: 5500,<br />        stopOnHover: true<br />    });<br />});</code>    
+            </pre>
+
+        </div>
+
+        <!-- #################### Tabs #################### -->
+
+        <div id="tabs">
+
+            <h2 class="title">Facility tabs</h2>
+
+            <div class="image">
+                <img src="assets/images/tabs.png" alt="" />
+            </div>
+
+            <h4 class="subtitle">Markup tabs</h4>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;div class=&quot;facility&quot;&gt;<br /><br />    &lt;!-- === facility-addons === --&gt;<br /><br />    &lt;div class=&quot;facility-addons&quot;&gt;<br /><br />        &lt;!-- === nav-tabs === --&gt;<br /><br />        &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;<br /><br />            &lt;li role=&quot;presentation&quot; class=&quot;active&quot;&gt;<br />                &lt;a href=&quot;#menus&quot; aria-controls=&quot;menus&quot; role=&quot;tab&quot; data-toggle=&quot;tab&quot;&gt;<br />                    &lt;i class=&quot;hotelicon hotelicon-kitchen&quot;&gt;&lt;/i&gt;<br />                    &lt;span class=&quot;visible-md visible-lg&quot;&gt;Tab item&lt;/span&gt;<br />                &lt;/a&gt;<br />            &lt;/li&gt;<br /><br />            &lt;li&gt;<br />                ...<br />            &lt;/li&gt;<br />        &lt;/ul&gt;<br /><br />        &lt;!-- === tab-panes === --&gt;<br /><br />        &lt;div class=&quot;tab-content&quot;&gt;<br /><br />            &lt;!-- ============ tab #1 ============ --&gt;<br /><br />            &lt;div role=&quot;tabpanel&quot; class=&quot;tab-pane active&quot; id=&quot;menus&quot;&gt;<br />                &lt;div class=&quot;content&quot;&gt;<br />                    ...<br /><br />                &lt;/div&gt;<br />            &lt;/div&gt;<br /><br />        &lt;/div&gt; &lt;!--/tab-content--&gt;<br /><br />    &lt;/div&gt; &lt;!--/facility-addons--&gt;<br />&lt;/div&gt; &lt;!--/facility--&gt;</code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Credits #################### -->
+
+        <div id="credits">
+            <h2 class="title">Credits</h2>
+
+            <h4 class="subtitle">Images</h4>
+
+            <ul>
+                <li><a target="_blank" href="https://unsplash.com/">Unsplash</a></li>
+                <li><a target="_blank" href="https://www.pexels.com/">Pexels</a></li>
+                <li><a target="_blank" href="https://pixabay.com/en/">Pixabay</a></li>
+                <li><a target="_blank" href="https://morguefile.com/">Morguefile</a></li>
+            </ul>
+
+            <h4 class="subtitle">jQuery</h4>
+
+            <ul>
+                <li><a target="_blank" href="http://www.landmarkmlp.com/js-plugin/owl.carousel/">Owl Carousel</a></li>
+                <li><a target="_blank" href="http://dimsemenov.com/plugins/magnific-popup/">Magnific popup</a></li>
+                <li><a target="_blank" href="http://ionden.com/a/plugins/ion.rangeSlider/en.html">Ion RangeSlider</a></li>
+            </ul>
+
+            <h4 class="subtitle">CSS</h4>
+
+            <ul>
+                <li><a target="_blank" href="http://www.landmarkmlp.com/js-plugin/owl.carousel/">Bootstrap</a></li>
+                <li><a target="_blank" href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+                <li><a target="_blank" href="https://linearicons.com/">Linear icons</a></li>
+                <li><a target="_blank" href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro - Google Fonts</a></li>
+                <li><a target="_blank" href="https://fonts.google.com/specimen/Roboto">Roboto - Google Fonts</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+
