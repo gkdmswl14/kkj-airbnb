@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>호텔 목록 - 호텔 에이전시</title>
+    
+    <link rel="stylesheet" href="../template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../template/css/font-awesome.css">
+    <link rel="stylesheet" href="css/agency.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-hotel"></i> 호텔 에이전시
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">홈</a></li>
+                    <li class="active"><a href="hotels.html">호텔 목록</a></li>
+                    <li><a href="admin.html">관리자</a></li>
+                    <li><a href="bookings.html">내 예약</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>호텔 목록</h1>
+            <p>원하는 호텔을 찾아보세요</p>
+        </div>
+    </section>
+
+    <!-- Filters and Hotels -->
+    <section class="hotels-section section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-md-3">
+                    <div class="filter-panel">
+                        <h3>필터</h3>
+                        
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <h4>가격 범위</h4>
+                            <div class="price-range">
+                                <input type="range" id="priceMin" min="0" max="500000" value="0" step="10000">
+                                <input type="range" id="priceMax" min="0" max="500000" value="500000" step="10000">
+                                <div class="price-display">
+                                    <span id="priceMinDisplay">0원</span> - <span id="priceMaxDisplay">500,000원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Star Rating -->
+                        <div class="filter-group">
+                            <h4>별점</h4>
+                            <div class="star-filter">
+                                <label><input type="checkbox" value="5"> <span class="stars">★★★★★</span></label>
+                                <label><input type="checkbox" value="4"> <span class="stars">★★★★☆</span></label>
+                                <label><input type="checkbox" value="3"> <span class="stars">★★★☆☆</span></label>
+                                <label><input type="checkbox" value="2"> <span class="stars">★★☆☆☆</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Amenities -->
+                        <div class="filter-group">
+                            <h4>편의시설</h4>
+                            <div class="amenities-filter">
+                                <label><input type="checkbox" value="wifi"> <i class="fa fa-wifi"></i> 무선 인터넷</label>
+                                <label><input type="checkbox" value="parking"> <i class="fa fa-car"></i> 주차</label>
+                                <label><input type="checkbox" value="pool"> <i class="fa fa-tint"></i> 수영장</label>
+                                <label><input type="checkbox" value="gym"> <i class="fa fa-dumbbell"></i> 헬스장</label>
+                                <label><input type="checkbox" value="spa"> <i class="fa fa-spa"></i> 스파</label>
+                                <label><input type="checkbox" value="restaurant"> <i class="fa fa-utensils"></i> 레스토랑</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="applyFilters">필터 적용</button>
+                        <button class="btn btn-default btn-block" id="resetFilters">초기화</button>
+                    </div>
+                </div>
+
+                <!-- Hotels List -->
+                <div class="col-md-9">
+                    <div class="hotels-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p id="hotelsCount">총 <strong>0</strong>개의 호텔</p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <select class="form-control" id="sortBy" style="display: inline-block; width: auto;">
+                                    <option value="name">이름순</option>
+                                    <option value="price-low">가격 낮은순</option>
+                                    <option value="price-high">가격 높은순</option>
+                                    <option value="rating">평점순</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotels-list" id="hotelsList">
+                        <!-- Hotels will be loaded here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination" id="pagination">
+                            <!-- Pagination will be generated here -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">&copy; 2025 호텔 에이전시. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../template/js/jquery.min.js"></script>
+    <script src="../template/js/jquery.bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/hotels.js"></script>
+</body>
+</html>
+

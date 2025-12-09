@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>관리자 대시보드 - 호텔 에이전시</title>
+    
+    <link rel="stylesheet" href="../template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../template/css/font-awesome.css">
+    <link rel="stylesheet" href="css/agency.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-hotel"></i> 호텔 에이전시
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="hotels.html">호텔 목록</a></li>
+                    <li class="active"><a href="admin.html">관리자</a></li>
+                    <li><a href="bookings.html">내 예약</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-section section-padding">
+        <div class="container">
+            <h1 class="page-title">관리자 대시보드</h1>
+            
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">호텔 관리</a>
+                </li>
+                <li role="presentation">
+                    <a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">예약 관리</a>
+                </li>
+                <li role="presentation">
+                    <a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">통계</a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Hotels Tab -->
+                <div role="tabpanel" class="tab-pane active" id="hotels">
+                    <div class="admin-panel">
+                        <div class="panel-header">
+                            <h2>호텔 관리</h2>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#addHotelModal">
+                                <i class="fa fa-plus"></i> 새 호텔 추가
+                            </button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>호텔명</th>
+                                        <th>위치</th>
+                                        <th>가격</th>
+                                        <th>별점</th>
+                                        <th>상태</th>
+                                        <th>작업</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hotelsTableBody">
+                                    <!-- Hotels will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div role="tabpanel" class="tab-pane" id="bookings">
+                    <div class="admin-panel">
+                        <div class="panel-header">
+                            <h2>예약 관리</h2>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>예약번호</th>
+                                        <th>호텔명</th>
+                                        <th>고객명</th>
+                                        <th>체크인</th>
+                                        <th>체크아웃</th>
+                                        <th>인원</th>
+                                        <th>총액</th>
+                                        <th>상태</th>
+                                        <th>작업</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsTableBody">
+                                    <!-- Bookings will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Tab -->
+                <div role="tabpanel" class="tab-pane" id="statistics">
+                    <div class="admin-panel">
+                        <h2>통계</h2>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fa fa-hotel"></i>
+                                    <h3 id="totalHotels">0</h3>
+                                    <p>총 호텔 수</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fa fa-calendar-check"></i>
+                                    <h3 id="totalBookings">0</h3>
+                                    <p>총 예약 수</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fa fa-won"></i>
+                                    <h3 id="totalRevenue">0원</h3>
+                                    <p>총 매출</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fa fa-user"></i>
+                                    <h3 id="totalUsers">0</h3>
+                                    <p>총 사용자</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Hotel Modal -->
+    <div class="modal fade" id="addHotelModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">새 호텔 추가</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addHotelForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>호텔명 *</label>
+                                    <input type="text" class="form-control" id="hotelName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>위치 (도시) *</label>
+                                    <input type="text" class="form-control" id="hotelLocation" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>주소 *</label>
+                                    <input type="text" class="form-control" id="hotelAddress" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>별점 *</label>
+                                    <select class="form-control" id="hotelRating" required>
+                                        <option value="1">1성급</option>
+                                        <option value="2">2성급</option>
+                                        <option value="3">3성급</option>
+                                        <option value="4">4성급</option>
+                                        <option value="5">5성급</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>1박 가격 (원) *</label>
+                                    <input type="number" class="form-control" id="hotelPrice" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>이미지 URL</label>
+                                    <input type="url" class="form-control" id="hotelImage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>설명</label>
+                            <textarea class="form-control" id="hotelDescription" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>편의시설</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="wifi"> 무선 인터넷</label>
+                                <label><input type="checkbox" value="parking"> 주차</label>
+                                <label><input type="checkbox" value="pool"> 수영장</label>
+                                <label><input type="checkbox" value="gym"> 헬스장</label>
+                                <label><input type="checkbox" value="spa"> 스파</label>
+                                <label><input type="checkbox" value="restaurant"> 레스토랑</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" id="saveHotel">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">&copy; 2025 호텔 에이전시. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../template/js/jquery.min.js"></script>
+    <script src="../template/js/jquery.bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

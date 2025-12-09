@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="호텔 예약 에이전시 - 최고의 호텔을 찾아보세요">
+    <title>호텔 에이전시 - 최고의 호텔 예약 플랫폼</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../template/css/font-awesome.css">
+    <link rel="stylesheet" href="../template/css/animate.min.css">
+    <link rel="stylesheet" href="css/agency.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-hotel"></i> 호텔 에이전시
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="hotels.html">호텔 목록</a></li>
+                    <li><a href="admin.html">관리자</a></li>
+                    <li><a href="bookings.html">내 예약</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">최고의 호텔을 찾아보세요</h1>
+                <p class="hero-subtitle">전 세계 수천 개의 호텔 중에서 선택하세요</p>
+                
+                <!-- Search Form -->
+                <div class="search-box">
+                    <form id="searchForm" class="search-form">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>도시 또는 호텔명</label>
+                                    <input type="text" class="form-control" id="searchLocation" placeholder="예: 서울, 제주도">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>체크인</label>
+                                    <input type="date" class="form-control" id="checkIn">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>체크아웃</label>
+                                    <input type="date" class="form-control" id="checkOut">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>인원</label>
+                                    <select class="form-control" id="guests">
+                                        <option value="1">1명</option>
+                                        <option value="2" selected>2명</option>
+                                        <option value="3">3명</option>
+                                        <option value="4">4명</option>
+                                        <option value="5+">5명 이상</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fa fa-search"></i> 검색하기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Hotels -->
+    <section class="featured-hotels section-padding">
+        <div class="container">
+            <h2 class="section-title">추천 호텔</h2>
+            <div class="row" id="featuredHotels">
+                <!-- Hotels will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-box">
+                        <i class="fa fa-hotel"></i>
+                        <h3 class="stat-number" data-count="500">0</h3>
+                        <p>등록된 호텔</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-box">
+                        <i class="fa fa-users"></i>
+                        <h3 class="stat-number" data-count="10000">0</h3>
+                        <p>만족한 고객</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-box">
+                        <i class="fa fa-globe"></i>
+                        <h3 class="stat-number" data-count="50">0</h3>
+                        <p>도시</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-box">
+                        <i class="fa fa-star"></i>
+                        <h3 class="stat-number" data-count="4.8">0</h3>
+                        <p>평균 평점</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>호텔 에이전시</h4>
+                    <p>최고의 호텔 예약 경험을 제공합니다.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>고객 지원</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">자주 묻는 질문</a></li>
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">이용약관</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>연락처</h4>
+                    <p><i class="fa fa-phone"></i> 1588-0000</p>
+                    <p><i class="fa fa-envelope"></i> info@hotelagency.com</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">&copy; 2025 호텔 에이전시. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../template/js/jquery.min.js"></script>
+    <script src="../template/js/jquery.bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
